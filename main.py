@@ -1,5 +1,5 @@
-# This is a sample Python script.
 import time
+
 from contants import *
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
@@ -43,8 +43,7 @@ waitElement.until(EC.presence_of_element_located((By.NAME, PAYMENT_IFRAME)))
 driver.switch_to.frame(PAYMENT_IFRAME)
 driver.find_element(By.ID, PASSWORD_INPUT).send_keys(PASSWORD_INFO)
 driver.find_element(By.ID, CONTINUE_BUTTON).click()
+driver.switch_to.default_content()
 waitElement.until(EC.visibility_of_element_located((By.XPATH, SUCCESSFUL_PAYMENT)))
 scpayment = driver.find_element(By.XPATH, SUCCESSFUL_PAYMENT).text
 assert scpayment == "Payment was successful!", "Unsuccessful payment"
-while(True):
-    pass
